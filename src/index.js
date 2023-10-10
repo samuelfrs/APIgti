@@ -1,4 +1,5 @@
 const Fastify = require("fastify");
+const port = process.env.PORT || 3000;
 
 const fastify = Fastify({
     logger: false, //exibir no terminal o que tá sendo executado
@@ -252,7 +253,7 @@ fastify.get("/", function (request, reply){
     reply.send(embaralhar(perguntas).slice(0, quantidadeAleatoriaEntre(4, 6)));
 });
 
-fastify.listen({ port: 3000 }, function(error, address) {
+fastify.listen(port, function(error, address) {
    if(error) {
     console.log(error)
     process.exit(1)
